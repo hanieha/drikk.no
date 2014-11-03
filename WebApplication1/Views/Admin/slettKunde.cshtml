@@ -1,0 +1,88 @@
+﻿@model WebApplication1.Model.Kunde
+
+@{
+    ViewBag.Title = "slettKunde";
+}
+
+<h2>slettKunde</h2>
+
+<h3>Er du sikker på at du vil slette kunden?</h3>
+<div>
+    <h4>Kunde</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Kid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fornavn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fornavn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Etternavn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Etternavn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adresse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Epost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Epost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Postnr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Postnr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Poststed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Poststed)
+        </dd>
+
+        @*<dt>
+        @Html.DisplayNameFor(model => model.Passord)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Passord)
+    </dd> *@
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @Html.ActionLink("Tilbake til Kundeliste", "hentAlleKunder", new { tom = "" }, new { @class = "btn btn-info " })
+            <input type="submit" value="Slett" class="btn btn-danger"  /> 
+        </div>
+    }
+</div>

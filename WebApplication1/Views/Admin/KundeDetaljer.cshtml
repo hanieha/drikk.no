@@ -1,0 +1,82 @@
+﻿@model WebApplication1.Model.Kunde
+
+@{
+    ViewBag.Title = "KundeDetaljer";
+}
+
+<h2>KundeDetaljer</h2>
+
+<div>
+    <h4>Kunde</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Kid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fornavn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fornavn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Etternavn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Etternavn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adresse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Epost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Epost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Postnr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Postnr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Poststed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Poststed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Passord)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Passord)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Endre", "EndreKunde", new { Kid = Model.Kid }) |
+    @Html.ActionLink("Tilbake til Kundeliste", "Index")
+</p>

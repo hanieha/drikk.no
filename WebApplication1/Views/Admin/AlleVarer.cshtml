@@ -1,0 +1,75 @@
+﻿@model IEnumerable<WebApplication1.Model.Vare>
+
+@{
+    ViewBag.Title = "Alle Varer";
+}
+
+<h2>AlleVarer</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VareId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Navn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pris)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Antall)
+        </th>
+       @* <th>
+            @Html.DisplayNameFor(model => model.VareArtUrl)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Kategori)
+        </th>
+        <!--KatId ble slettet-->
+        <!--LandId ble slettet-->
+        <th>
+            @Html.DisplayNameFor(model => model.Land)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VareId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Navn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pris)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Antall)
+        </td>
+       @* <td>
+            @Html.DisplayFor(modelItem => item.VareArtUrl)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Kategori)
+        </td>
+        <!--KatId ble slettet-->
+        <!--LandId ble slettet-->
+        <td>
+            @Html.DisplayFor(modelItem => item.Land)
+        </td>
+        <td>
+            @Html.ActionLink("Endre", "EndreVare", new { id = item.VareId }, new { @class = "btn btn-success btn-sm" }) 
+            @Html.ActionLink("Detalj", "VareDetalj", new { id=item.VareId}, new { @class = "btn btn-info btn-sm" }) 
+            @Html.ActionLink("Slett", "SlettVare", new { id=item.VareId} , new { @class = "btn btn-danger btn-sm" })
+        </td>
+    </tr>
+    
+}
+
+</table>
+<p>
+    @Html.ActionLink("Registrer en ny vare", "SettInnNyVare", "Admin")
+</p>

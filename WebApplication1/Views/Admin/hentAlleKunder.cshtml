@@ -1,0 +1,75 @@
+﻿@model IEnumerable<WebApplication1.Model.Kunde>
+
+@{
+    ViewBag.Title = "hentAlleKunder";
+}
+
+<h2>Liste over alle kunder:</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Kid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fornavn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Etternavn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adresse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Epost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Postnr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Poststed)
+        </th>
+        <th>
+            @*            @Html.DisplayNameFor(model => model.Passord)
+            *@
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fornavn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Etternavn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adresse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Epost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Postnr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Poststed)
+        </td>
+        <td>
+        @*            @Html.DisplayFor(modelItem => item.Passord)
+        *@
+        </td>
+        <td>
+            @Html.ActionLink("Endre", "EndreKunde", new { id = item.Kid }, new { @class = "btn btn-success btn-sm" }) 
+            @Html.ActionLink("Detalj", "KundeDetaljer", new { id = item.Kid }, new { @class = "btn btn-info btn-sm" }) 
+            @Html.ActionLink("Slett", "slettKunde", "Admin", new { id = item.Kid }, new { @class = "btn btn-danger btn-sm" })
+        </td>
+    </tr>
+}
+
+</table>

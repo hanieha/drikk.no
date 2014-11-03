@@ -1,0 +1,21 @@
+﻿@model WebApplication1.Model.Vare
+
+@{
+    ViewBag.Title = "Vare - " + Model.VareId;
+}
+
+<h4>Vare: @Model.Navn</h4>
+
+<p> <img alt="@Model.VareId" src="~/Content/Images/@Model.VareArtUrl" /></p>
+<div>
+  @* 
+  <p><em>Kategori:</em> @Model.Kategori.KatNavn</p>
+  *@
+    <p>Navn: @Model.Navn</p>
+    <p>Land: @Model.Land</p>
+    <p>Pris: @String.Format("{0:F}", Model.Pris)</p>
+   <div>
+    @Html.ActionLink("Til Vareliste", "AlleVarer")
+</div>
+</div>
+

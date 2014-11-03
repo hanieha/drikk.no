@@ -1,0 +1,37 @@
+﻿@model WebApplication1.Model.Kategori
+
+@{
+    ViewBag.Title = "KategoriListe";
+}
+
+<div>
+    <h4>@Model.KatNavn</h4>
+
+    <ul id="album-list">
+        @foreach (var vare in Model.Kategorier)
+        {
+            <!--<li>
+                @vare.KatNavn
+                <a href="@Url.Action("Detaljer", new { KatId = vare.KatId })">
+                   <span>@vare.KatNavn</span>
+                </a>
+            </li>-->
+            <li>@Html.ActionLink(vare.KatNavn, "Detaljer", new { KatId = vare.KatId }, null)</li>
+            
+        }
+    </ul>
+</div>
+<!--<h4>Kategori: @Model.KatNavn</h4>
+<ul>
+    @foreach (var vare in @Model.Kategorier)
+    {
+    <li>@Html.ActionLink(vare.KatNavn, "Detalijer", new { KatId = vare.KatId })</li>
+       // <li>@vare.Navn</li>
+    }
+</ul> -->
+<!--<div>
+<p class="button">
+    @Html.ActionLink("Vis handlekurv", "VisHandlekurv", "Salg", new { tom = "" }, new { @class = "btn btn-primary btn-sm " })
+
+</p>
+</div> -->

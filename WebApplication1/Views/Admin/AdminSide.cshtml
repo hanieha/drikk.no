@@ -1,0 +1,99 @@
+﻿@model WebApplication1.Model.Admin
+
+@{
+    ViewBag.Title = "Innlogging - Admin";
+}
+<script type="text/javascript"> alert(ViewBag.Innlogget);</script>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+      <hr />
+      <div>
+        @if (!ViewBag.Innlogget)
+        {
+          <h3>Innlogging for Adminer </h3>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+          <div class="form-group">
+            @Html.LabelFor(model => model.Epost, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+              @Html.EditorFor(model => model.Epost, new { htmlAttributes = new { @class = "form-control" } })
+              @Html.ValidationMessageFor(model => model.Epost, "", new { @class = "text-danger" })
+            </div>
+          </div>
+
+        <div class="form-group">
+          @Html.LabelFor(model => model.Passord, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+              @Html.EditorFor(model => model.Passord, new { htmlAttributes = new { @class = "form-control" } })
+              @Html.ValidationMessageFor(model => model.Passord, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Logg inn" class="btn btn-default" />
+          </div>
+        </div>
+        <!--<p style="color:red">Du er ikke registrert!</p> 
+        @Html.ActionLink(" Registrer ny ansatt", "Registrer", "Admin") -->
+        }
+        else
+        {
+                @* @{ ViewBag.Title = "AdminSide";  }  *@
+          <h2>AdminSide</h2>
+        <h4>Administrering av ansatte</h4>
+        <table>
+          <!--<thead><tr> Administrering av ansatte</tr></thead>-->
+          <tbody>
+            <tr>
+              <td>@Html.ActionLink(" Registrer ny ansatt", "Registrer", "Admin", "Rolle=ansatt")</td>
+            </tr>
+            <tr>
+              <td>@Html.ActionLink(" Lise over ansatte", "HentAlleAnsatter", "Admin")</td>
+            </tr>
+            <tr>
+              <td>@Html.ActionLink(" Fjern / endre ", "Registrer", "Admin")</td>
+            </tr>
+          </tbody>
+        </table>
+        <h4>Administrering av kunder</h4>
+        <table>
+          <!--<thead><tr>Administrering av varer</tr></thead>-->
+          <tbody>
+            <tr>
+              <td>@Html.ActionLink(" Lise over alle kunder", "hentAlleKunder", "Admin")</td>
+            </tr>
+          </tbody>
+        </table>
+        <h4>Administrering av varer</h4>
+        <table>
+          <!--<thead><tr>Administrering av varer</tr></thead>-->
+          <tbody>
+            <tr>
+              <td>@Html.ActionLink(" Registrer ny vare", "hentAlleKunder", "Admin")</td>
+            </tr>
+            <tr>
+              <td>@Html.ActionLink(" Lise over varer", "AlleVarer", "Admin")</td>
+            </tr>
+            <tr>
+              <td>@Html.ActionLink(" Fjern eller endre ", "Registrer", "Admin")</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div>
+          @Html.ActionLink("Logg ut", "LoggUt", "Admin", new { @class = "right" })
+        </div>
+        }
+      </div>
+    </div>
+}
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
